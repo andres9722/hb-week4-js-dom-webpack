@@ -1,0 +1,60 @@
+@import '../Shared/mixins.scss';
+@import '../Shared/variables.scss';
+@import '../Shared/typography.scss';
+
+.main-header {
+  background: $black;
+  color: white;
+  padding: .5em 1em;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 500;
+
+  &__categories {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include from($large) {
+      max-width: $max-width;
+      margin: 0 auto;
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    text-shadow: 0 2px 0 darken($principal-color, 10);
+    font-size: 2.2em;
+    letter-spacing: 2px;
+    font-family: $font-header;
+  }
+
+  &__button {
+    border: 1.5px solid darken($principal-color, 10);
+    background: $principal-color;
+    color: $white;
+    font-size: 1.2em;
+    font-family: $font-text;
+    margin-left: .5em;
+    cursor: pointer;
+    border-radius: 5px;
+    text-transform: capitalize;
+
+    @include from($medium) {
+      font-size: 1.1em;
+      margin-left: 1em;
+      transition: color .3s ease;
+
+      &:hover {
+        background: darken(white, 10);
+        color: darken($principal-color, 10);
+      }
+    }
+  }
+}

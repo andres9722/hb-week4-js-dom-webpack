@@ -1,0 +1,102 @@
+@import '../shared/typography.scss';
+@import '../shared/variables.scss';
+@import '../Shared/base.scss';
+
+.movies-item {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  &__name {
+    background: $black;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    color: $white;
+    transform: translate(-100%);
+    transition: transform .4s ease;
+    z-index: -1;
+    font-size: 1em;
+    opacity: .8;
+    text-shadow: 0 1px 0 black;
+  }
+
+  &__image {
+    width: 100%;
+    height: 450px;
+    position: relative;
+    z-index: -5;
+    transition: transform .4s ease;
+  }
+
+  &:hover {
+    .movies-item__image {
+      transform: scale(1.03);
+      filter: saturate(150%);
+    }
+
+    .movies-item__name {
+      transform: translate(0);
+    }
+  }
+
+  &__info {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: $principal-color;
+    transition: transform .3s ease;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    z-index: -1;
+    perspective: 100;
+    transform-style: preserve-3d;
+  }
+
+  &.hidden {
+    display: none;
+  }
+
+  &--active {
+    .movies-item__info {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      transform: rotateY(0);
+    }
+  }
+
+  &__title {
+    color: $white;
+    text-transform: uppercase;
+    text-shadow: 0 2px 0 black;
+    font-size: 3em;
+    font-family: $font-header;
+  }
+
+  &__stars {
+    font-size: 0.9em;
+  }
+
+  &__camera {
+    position: absolute;
+    z-index: -10;
+    top: 0;
+    left: 0;
+    filter: invert(100%) drop-shadow(16px 16px 5px $black);
+    opacity: .1;
+    transform: rotate(30deg);
+  }
+}

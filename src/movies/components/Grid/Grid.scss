@@ -1,0 +1,29 @@
+@import '../Shared/mixins.scss';
+@import '../Shared/variables.scss';
+
+.movies-container {
+  padding-top: 75px;
+    &__list {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      @include from($small) {
+        max-width: $max-width;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 5px;
+      }
+
+      @include from($medium) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @include from($large) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  }
